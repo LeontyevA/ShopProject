@@ -1,7 +1,7 @@
 import { GoodItem } from "./GoogItem";
 
 function GoodsList(props) {
-    const {goods = []} = props;
+    const {goods = [], addToCart = Function.prototype} = props;
 
     if (!goods.length)
     {
@@ -9,7 +9,7 @@ function GoodsList(props) {
     }
     return ( <div className="goods">
         {goods.map((item) => (
-        <GoodItem key={item.mainId} {...item}/>))}
+        <GoodItem key={item.mainId} {...item} addToCart={addToCart}/>))}
     </div> )
 }
 

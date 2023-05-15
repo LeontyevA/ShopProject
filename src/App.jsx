@@ -10,6 +10,7 @@ const App = () => {
 			<Header />
 			<Shop />
 			<Footer />
+		  {/* shopping_cart */}
 		</>
 	);
 };
