@@ -3,6 +3,7 @@ import { API_URL, API_KEY } from '../config';
 import { Preloader } from './Preloader';
 import { GoodsList } from './GoodsList';
 import { Cart } from './Cart';
+import { CartList } from './CartList';
 
 function Shop() {
 	const [goods, setGoods] = useState([]);
@@ -34,7 +35,7 @@ function Shop() {
         setIsCartShow(!isCartShow);
     }
 
-	useEffect(function getGoods() {
+    useEffect(function getGoods() {
 		fetch(API_URL, {
 			headers: {
 				Authorization: API_KEY,
@@ -55,6 +56,7 @@ function Shop() {
 			) : (
 				<GoodsList goods={goods} addToCart={addToCart} />
 			)}
+            {isCartShow && <CartList orders={orders} handleCartShow={handleCartShow}/>}
 		</main>
 	);
 }
